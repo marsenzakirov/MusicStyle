@@ -15,11 +15,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
+}
+html,
+body {
+  border-radius: 20px;
+  overflow: hidden;
 }
 html {
   user-select: none;
-  border-radius: 20px;
 }
 
 .container {
@@ -76,15 +79,18 @@ button {
 }
 
 button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
   cursor: pointer;
 }
-
-button:hover {
-  border-color: #396cd8;
+button:focus {
+  outline: none;
 }
 
-input,
-button {
+input {
   outline: none;
 }
 
@@ -102,9 +108,7 @@ button {
     color: #24c8db;
   }
 
-  input,
-  button {
+  input {
     color: #ffffff;
-    background-color: #0f0f0f98;
   }
 }
