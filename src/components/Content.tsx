@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "@components/Header";
 
 export default function Content({ children }: { children?: React.ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export default function Content({ children }: { children?: React.ReactNode }) {
       }}
       className="w-full"
     >
+      <Header title="My App" />
       {children}
     </div>
   );

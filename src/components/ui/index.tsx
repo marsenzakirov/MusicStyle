@@ -1,3 +1,4 @@
 import Icon from "./Icon";
-
-export { Icon };
+import Modal from "./Modal";
+import LabelError from "./LabelError";
+export { Icon, Modal, LabelError };
