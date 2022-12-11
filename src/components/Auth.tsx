@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Icon, LabelError, Modal } from '@ui';
@@ -47,7 +48,7 @@ function Authentication(): React.ReactElement {
   return (
     <form
       className="flex flex-col items-center"
-      onSubmit={() => handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex flex-col gap-2 text-black">
         <input
@@ -79,6 +80,7 @@ function Authentication(): React.ReactElement {
         <button
           type="submit"
           className="w-80 h-10 rounded-[20px] px-4 bg-[#270045] text-white"
+          onClick={() => handleSubmit(onSubmit)}
         >
           Sign in
         </button>
@@ -94,7 +96,9 @@ function Registration(): React.ReactElement {
     formState: { errors },
   } = useForm<RegistrationType>();
 
-  const onSubmit: SubmitHandler<RegistrationType> = (data) => {};
+  const onSubmit: SubmitHandler<RegistrationType> = (data) => {
+    console.log(data);
+  };
   return (
     <form
       className="flex flex-col items-center"
@@ -141,6 +145,7 @@ function Registration(): React.ReactElement {
         <button
           type="submit"
           className="w-80 h-10 rounded-[20px] px-4 bg-[#270045] text-white"
+          onClick={handleSubmit(onSubmit)}
         >
           Sign in
         </button>
