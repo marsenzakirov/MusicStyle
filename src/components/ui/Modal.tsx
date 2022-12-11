@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react';
 
-type Props = {
+interface Props {
   buttonChildren: React.ReactNode;
   children: React.ReactNode;
-};
+}
 
-export default function Modal({ buttonChildren, children }: Props) {
+export default function Modal({
+  buttonChildren,
+  children,
+}: Props): React.ReactElement {
   return (
     <div>
       <label htmlFor="my-modal-4" className="cursor-pointer">

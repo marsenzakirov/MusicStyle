@@ -1,7 +1,7 @@
-import { Icon } from "@components/ui";
-import React from "react";
+import { Icon } from '@components/ui';
+import React from 'react';
 
-export default function Navigation() {
+export default function Navigation(): React.ReactElement {
   return (
     <div className="flex flex-col gap-6">
       <NavigationButton name="home" alt="Home" />
@@ -11,12 +11,18 @@ export default function Navigation() {
   );
 }
 
-const NavigationButton = ({ name, alt }: { name: string; alt: string }) => {
+const NavigationButton = ({
+  name,
+  alt,
+}: {
+  name: string;
+  alt: string;
+}): React.ReactElement => {
   return (
     <button
       style={{
         background:
-          "radial-gradient(103.75% 103.75% at 50% 50%, #300E77 0%, rgba(29, 19, 51, 0) 100%)",
+          'radial-gradient(103.75% 103.75% at 50% 50%, #300E77 0%, rgba(29, 19, 51, 0) 100%)',
       }}
       className="w-14 h-14 rounded-full border-[2px] border-solid border-[#00DAE8] flex items-center justify-center"
     >

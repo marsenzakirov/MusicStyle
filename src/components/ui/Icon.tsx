@@ -1,27 +1,34 @@
-import Image from "next/future/image";
+import Image from 'next/future/image';
 
-const req = require["context"]("../../assets/icons", true, /\.svg$/);
-// cut half an array
-const icons = req
-  .keys()
-  .slice(0, req.keys().length / 2)
-  .map((key) => {
-    const name = key.replace("./", "").replace(".svg", "");
-    return {
-      name,
-      component: req(key).default,
-    };
+const req = require.context('../../assets/icons', true, /\.svg$/);
+
+interface IconInterface {
+  name: string;
+  component: string;
+}
+
+const icons = [] as IconInterface[];
+for (let i = 0; i < req.keys().length / 2; i++) {
+  const name = req.keys()[i].replace('./', '').replace('.svg', '');
+  icons.push({
+    name,
+    component: req(req.keys()[i]).default,
   });
+}
 
-type IconProps = {
+interface IconProps {
   name: string;
   size: number;
   alt: string;
-};
+}
 
-export default function Icon({ name, size, alt }: IconProps) {
+export default function Icon({
+  name,
+  size,
+  alt,
+}: IconProps): React.ReactElement | null {
   const icon = icons.find((icon) => icon.name === name);
-  if (!icon) {
+  if (icon === undefined) {
     return null;
   }
   return (
