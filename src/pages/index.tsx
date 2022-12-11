@@ -1,5 +1,6 @@
-import Content from "@components/Content";
-function App() {
+import Content from '@components/Content';
+
+function App(): React.ReactElement {
   return <Content></Content>;
 }
 

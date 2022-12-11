@@ -1,12 +1,15 @@
-import React from "react";
-import { CSSTransition } from "react-transition-group";
+import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 
-type Props = {
+interface Props {
   condition: boolean;
   children: React.ReactNode;
-};
+}
 
-export default function LabelError({ condition, children }: Props) {
+export default function LabelError({
+  condition,
+  children,
+}: Props): React.ReactElement {
   const nodeRef = React.useRef(null);
   return (
     <CSSTransition

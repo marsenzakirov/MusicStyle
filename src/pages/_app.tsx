@@ -1,14 +1,17 @@
-import NavBar from "@components/navbar";
-import type { AppProps } from "next/app";
+import NavBar from '@components/navbar';
+import type { AppProps } from 'next/app';
 
-import "../style.css";
-import "../App.css";
+import '../style.css';
+import '../App.css';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps,
+}: AppProps): React.ReactElement {
   return (
     <div
       style={{
-        background: "linear-gradient(251.51deg, #180060 0%, #313373 100%)",
+        background: 'linear-gradient(251.51deg, #180060 0%, #313373 100%)',
       }}
       className="flex"
     >
