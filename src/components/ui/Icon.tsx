@@ -1,21 +1,5 @@
 import Image from 'next/future/image';
 
-const req = require.context('../../assets/icons', true, /\.svg$/);
-
-interface IconInterface {
-  name: string;
-  component: string;
-}
-
-const icons = [] as IconInterface[];
-for (let i = 0; i < req.keys().length / 2; i++) {
-  const name = req.keys()[i].replace('./', '').replace('.svg', '');
-  icons.push({
-    name,
-    component: req(req.keys()[i]).default,
-  });
-}
-
 interface IconProps {
   name: string;
   size: number;
@@ -27,13 +11,9 @@ export default function Icon({
   size,
   alt,
 }: IconProps): React.ReactElement | null {
-  const icon = icons.find((icon) => icon.name === name);
-  if (icon === undefined) {
-    return null;
-  }
   return (
     <Image
-      src={icon.component}
+      src={`/icons/${name}.svg`}
       width={size}
       height={size}
       draggable="false"
